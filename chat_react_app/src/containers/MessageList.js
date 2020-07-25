@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Message from './Message';
 
 
-// This Message will be rendered with the Message-List component
 const MessageList = ({messages}) => (
     <section id="messages-list">
     <ul>
@@ -19,8 +17,13 @@ const MessageList = ({messages}) => (
 )
 
 MessageList.PropsTypes = {
-    message: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired
+    message: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            message: PropsTypes.string.isRequired,
+            author: PropTypes.string.isRequired,
+        }).isRequired
+    ).isRequired
 };
 
 export default MessageList;
