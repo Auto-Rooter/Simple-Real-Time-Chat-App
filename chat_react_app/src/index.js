@@ -6,9 +6,12 @@ import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux';
 import { createStore } from 'redux'; // Where we will store the app data
 import chat from './reducers';
+import { addUser } from './actions';
 
 
 const store = createStore(chat);
+
+store.dispatch(addUser('Me'))
 
 // In redux whenever you want to change the state you need an action
 ReactDOM.render(
