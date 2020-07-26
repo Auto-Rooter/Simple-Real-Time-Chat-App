@@ -6,9 +6,10 @@ import createSagaMiddleware from 'redux-saga'
 
 import './index.css';
 import App from './App';
-import { setupSocket } from './sockets'
+import * as serviceWorker from './serviceWorker';
+import setupSocket from './sockets'
 import reducers from './reducers'
-import handleNewMessage from './sagas'
+import handlNewMessage from './sagas'
 import username from './utils/name'
 
 const sagaMiddleware = createSagaMiddleware()
@@ -17,7 +18,7 @@ const store = createStore(reducers, applyMiddleware(sagaMiddleware));
 
 const socket = setupSocket(store.dispatch, username)
 
-sagaMiddleware.run(handleNewMessage, {socket, username})
+sagaMiddleware.run(handlNewMessage, {socket, username})
 
 // In redux whenever you want to change the state you need an action
 ReactDOM.render(
