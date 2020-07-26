@@ -4,9 +4,7 @@ import PropType from 'prop-types'
 const Sidebar = ({users}) => (
     <aside id="sidebar" className="sidebar">
         <ul>
-            {users.map(user => {
-                <li key={user.id}> {user.name}</li>
-            })}
+            {users.map(user => ( <li key={user.id}>{user.name}</li>) )}
         </ul>
     </aside>
 )
@@ -21,3 +19,7 @@ Sidebar.PropType = {
 }
 
 export default Sidebar;
+
+// /Components: are the representational components .
+
+// USe the conncect function from React-redux

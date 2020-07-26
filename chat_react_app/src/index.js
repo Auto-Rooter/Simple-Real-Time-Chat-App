@@ -12,7 +12,7 @@ const store = createStore(chat);
 
 // In redux whenever you want to change the state you need an action
 ReactDOM.render(
-  <Provider>
+  <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root')
